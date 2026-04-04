@@ -3767,7 +3767,7 @@ export function REPL({
       }
 
 
-      if (feature('BUDDY')) {
+      if (feature('BUDDY') && typeof fireCompanionObserver === 'function') {
         void fireCompanionObserver(messagesRef.current, reaction =>
           setAppState(prev =>
             prev.companionReaction === reaction

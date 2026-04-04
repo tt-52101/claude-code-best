@@ -397,6 +397,7 @@ export function ConsoleOAuthFlow({
           handleSubmitCode={handleSubmitCode}
           setOAuthStatus={setOAuthStatus}
           setLoginWithClaudeAi={setLoginWithClaudeAi}
+          onDone={onDone}
         />
       </Box>
     </Box>
@@ -412,6 +413,7 @@ type OAuthStatusMessageProps = {
   pastedCode: string
   setPastedCode: (value: string) => void
   cursorOffset: number
+  onDone: () => void
   setCursorOffset: (offset: number) => void
   textInputColumns: number
   handleSubmitCode: (value: string, url: string) => void
@@ -433,6 +435,7 @@ function OAuthStatusMessage({
   handleSubmitCode,
   setOAuthStatus,
   setLoginWithClaudeAi,
+  onDone,
 }: OAuthStatusMessageProps): React.ReactNode {
   switch (oauthStatus.state) {
     case 'idle':
